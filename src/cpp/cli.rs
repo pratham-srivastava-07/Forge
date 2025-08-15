@@ -10,5 +10,13 @@ pub struct CPP {
 pub enum Commands {
     Run{},
     Build{},
-    Init{}
+    Init{
+        project_name: String,
+        
+        #[arg(long = "type", default_value = "app")]
+        template_type: String,
+
+        #[arg(long, default_value = ".")]
+        output_dir: String,
+    }
 }
