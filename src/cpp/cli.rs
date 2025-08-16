@@ -15,8 +15,6 @@ pub enum Commands {
         
         #[arg(long = "type", default_value = "app")]
         template_type: String,
-
-        #[arg(long, default_value = ".")]
-        output_dir: String,
-    }
+    },  
+    Install{}
 }

@@ -11,13 +11,19 @@ fn main() {
 
     match  cpp.commands {
         Commands::Build {  } => {},
-        Commands::Init { project_name, template_type, output_dir } => {
-            if let Err(e) = template::write_template(&project_name, &template_type, &output_dir) {
+
+
+        Commands::Init { project_name, template_type} => {
+            if let Err(e) = template::write_template(&project_name, &template_type) {
                 println!("Error generating template: {}", e)
             } else {
                 println!("Project '{}' created successfully!", project_name);
             }
         },
-        Commands::Run {  } => {}
+
+        
+        Commands::Run {} => {}
+
+        Commands::Install {} => {}
     }
 }
