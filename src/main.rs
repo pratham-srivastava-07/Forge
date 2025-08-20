@@ -1,3 +1,5 @@
+pub mod commands;
+pub mod utility;
 mod cpp;
 mod  template;
 use clap::Parser;

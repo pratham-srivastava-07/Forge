@@ -15,8 +15,8 @@ impl Dependencies {
 
     fn check() -> Self {
         Dependencies {
-            gcc: Self.check_for_tools("gcc", ["--version"]),
-            clang: Self.check_for_tools("clang", ["--version"]),
+            gcc: Self::check_for_tools("gcc", &["--version"]),
+            clang: Self::check_for_tools("clang", &["--version"]),
             msvc: Self::check_for_tools("cl", &["/?"]),
             cmake: Self::check_for_tools("cmake", &["--version"]),
         }
@@ -61,5 +61,5 @@ impl Dependencies {
 pub fn check_for_dependencies() -> bool {
     let dependencies = Dependencies::check();
 
-    dependencies.validate();
+    dependencies.validate()
 }
