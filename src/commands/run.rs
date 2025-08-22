@@ -8,7 +8,7 @@ pub fn run_command(project_name: &str) -> std::io::Result<()> {
 
     // build the project
 
-    build::build_project();
+    let _ = build::build_project();
 
     let executables = build_dir.join(project_name);
 

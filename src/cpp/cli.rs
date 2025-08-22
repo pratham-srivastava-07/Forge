@@ -8,7 +8,9 @@ pub struct CPP {
 
 #[derive(Subcommand)]
 pub enum Commands {
-    Run{},
+    Run{
+        project_name: String
+    },
     Build{},
     Init{
         project_name: String,

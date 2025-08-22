@@ -9,7 +9,7 @@ struct Dependencies {
 }
 
 impl Dependencies {
-    fn check_for_tools(tool: &str, args: &[&str]) -> bool {
+    fn check_for_tools(tool: &str, args: &[&str]) -> bool { 
         Command::new(tool).args(args).output().map(|out| out.status.success()).unwrap_or(false)
     }
 

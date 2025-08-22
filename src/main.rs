@@ -12,7 +12,13 @@ fn main() {
     let cpp = CPP::parse();
 
     match  cpp.commands {
-        Commands::Build {  } => {},
+        Commands::Build {  } => {
+            if let Err(e) = commands::build::build_project() {
+                println!("Error building the project {}", e)
+            } else {
+                println!("Project built successfully!");
+            }
+        },
 
 
         Commands::Init { project_name, template_type} => {
@@ -24,7 +30,13 @@ fn main() {
         },
 
         
-        Commands::Run {} => {}
+        Commands::Run {project_name} => {
+            if let Err(e) = commands::run::run_command(&project_name) {
+                println!("Error running the project {}", e);
+            } else {
+                println!("Project ran successfully!");
+            }
+        }
 
         Commands::Install {} => {}
     }
