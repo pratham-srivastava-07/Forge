@@ -10,7 +10,7 @@ pub fn build_project() -> std::io::Result<()> {
 
     //if build dir does not exist, create one
     if !build_directory.exists() {
-        fs::create_dir_all(&build_directory);
+        let _ = fs::create_dir_all(&build_directory);
     }
 
     // checking for dependencies

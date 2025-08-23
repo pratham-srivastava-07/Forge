@@ -38,6 +38,12 @@ fn main() {
             }
         }
 
-        Commands::Install {} => {}
+        Commands::Install {library_name, repo_url} => {
+            if let Err(e) = commands::install::install_command(&library_name, &repo_url) {
+                println!("An error occured while installing the library {} {}", library_name, e);
+            } else {
+                println!("Library {} installed!!", library_name);
+            }
+        }
     }
 }

@@ -18,5 +18,8 @@ pub enum Commands {
         #[arg(long = "type", default_value = "app")]
         template_type: String,
     },  
-    Install{}
+    Install{
+        library_name: String,
+        repo_url: String
+    }
 }
