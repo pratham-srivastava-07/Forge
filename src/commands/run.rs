@@ -11,7 +11,7 @@ pub fn run_command(project_name: &str) -> std::io::Result<()> {
     let _ = build::build_project();
 
     let executables = build_dir.join(project_name);
-
+    println!("Executable path {:?}", executables);
     if !executables.exists() {
         println!("Executable path does not exist");
         return Ok(())

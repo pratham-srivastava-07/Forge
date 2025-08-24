@@ -3,8 +3,8 @@ use std::process::Command;
 
 struct Dependencies {
     gcc: bool,
-    clang: bool,
-    msvc: bool, 
+    // clang: bool,
+    // msvc: bool, 
     cmake: bool
 }
 
@@ -16,8 +16,8 @@ impl Dependencies {
     fn check() -> Self {
         Dependencies {
             gcc: Self::check_for_tools("gcc", &["--version"]),
-            clang: Self::check_for_tools("clang", &["--version"]),
-            msvc: Self::check_for_tools("cl", &["/?"]),
+            // clang: Self::check_for_tools("clang", &["--version"]),
+            // msvc: Self::check_for_tools("cl", &["/?"]),
             cmake: Self::check_for_tools("cmake", &["--version"]),
         }
     }
@@ -32,19 +32,19 @@ impl Dependencies {
             println!("GCC found!!");
         }
 
-        if !self.msvc {
-            println!("MSVC missing!");
-            everything_present = false;
-        } else {
-            println!("MSVC present");
-        }
+        // if !self.msvc {
+        //     println!("MSVC missing!");
+        //     everything_present = false;
+        // } else {
+        //     println!("MSVC present");
+        // }
 
-        if !self.clang {
-            println!("Clang is not detected!");
-            everything_present = false;
-        } else {
-            println!("Clang found");
-        }
+        // if !self.clang {
+        //     println!("Clang is not detected!");
+        //     everything_present = false;
+        // } else {
+        //     println!("Clang found");
+        // }
 
         if !self.cmake {
             println!("CMake not detected!");

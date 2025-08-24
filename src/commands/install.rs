@@ -3,12 +3,12 @@ use std::process::Command;
 use std::env;
 use std::io;
 
-enum Template {
+pub enum Template {
     App,
     Lib
 }
 
-fn detect_template(project_root: &PathBuf) -> io::Result<Template> {
+pub fn detect_template(project_root: &PathBuf) -> io::Result<Template> {
     if project_root.join("app").exists() {
         Ok(Template::App)
     } else if project_root.join("lib").exists() {
