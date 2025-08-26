@@ -18,7 +18,7 @@ fn main() {
             } else {
                 println!("Project built successfully!");
             }
-        },
+        },  
 
 
         Commands::Init { project_name, template_type} => {

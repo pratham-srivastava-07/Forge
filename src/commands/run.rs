@@ -1,10 +1,18 @@
 use crate::commands::build;
 use std::{env, process::Command};
+use crate::commands::install::{detect_template, Template};
 
 
 pub fn run_command(project_name: &str) -> std::io::Result<()> {
     let cwd = env::current_dir()?;
-    let build_dir = cwd.join("build");
+
+    let template = detect_template(&cwd)?;
+
+    let project_dir = match template {
+        Template::App => cwd.join("app"),
+        Template::Lib => cwd.join("lib")
+    };
+    let build_dir = project_dir.join("build");
 
     // build the project
 
