@@ -1,4 +1,4 @@
-use std::process::Command;
+use std::{fs, process::Command};
 
 
 struct Dependencies {
@@ -62,4 +62,18 @@ pub fn check_for_dependencies() -> bool {
     let dependencies = Dependencies::check();
 
     dependencies.validate()
+}
+
+pub fn find_executable(build_dir: &std::path::Path) -> std::io::Result<Option<std::path::PathBuf>> {
+    for entry in fs::read_dir(build_dir)? {
+        let path = entry?.path();
+        if path.is_file() {
+            if let Some(fname) = path.file_name().and_then(|f| f.to_str()) {
+                if fname.ends_with(".exe") {
+                    return Ok(Some(path));
+                }
+            }
+        }
+    }
+    Ok(None)
 }
