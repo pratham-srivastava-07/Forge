@@ -2,7 +2,7 @@ use std::path::PathBuf;
 use std::process::Command;
 use std::env;
 use std::io;
-
+use crate::utility::helper::update_cmake;
 pub enum Template {
     App,
     Lib
@@ -21,7 +21,6 @@ pub fn detect_template(project_root: &PathBuf) -> io::Result<Template> {
 
 pub fn install_command(library_name: &str, repo_url: &str) -> io::Result<()> {
     let project_root = env::current_dir()?;
-    
     let template = detect_template(&project_root)?;
 
     let include_path = match template {
@@ -31,12 +30,11 @@ pub fn install_command(library_name: &str, repo_url: &str) -> io::Result<()> {
 
     if include_path.exists() {
         println!("{} already exists", library_name);
-        return Ok(())
+        return Ok(());
     }
 
     println!("Installing {}", library_name);
 
-    // Command::arg(&mut self, arg)
     let status = Command::new("git")
         .arg("clone")
         .arg("--depth=1")
@@ -49,6 +47,11 @@ pub fn install_command(library_name: &str, repo_url: &str) -> io::Result<()> {
         return Ok(());
     }
 
+    // check if library has CMakeLists.txt
+    let has_cmake = include_path.join("CMakeLists.txt").exists();
+
+    // update project CMakeLists
+    update_cmake(&project_root, library_name, has_cmake)?;
 
     Ok(())
 }
