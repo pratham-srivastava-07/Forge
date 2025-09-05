@@ -21,13 +21,19 @@ fn main() {
         },  
 
 
-        Commands::Init { project_name, template_type} => {
-            if let Err(e) = template::write_template(&project_name, &template_type) {
+       Commands::Init(args) => {
+            let template_type = if args.app {
+                "app"
+            } else {
+                "lib"
+            };
+
+            if let Err(e) = template::write_template(&args.project_name, template_type) {
                 println!("Error generating template: {}", e)
             } else {
-                println!("Project '{}' created successfully!", project_name);
+                println!("Project '{}' created successfully!", args.project_name);
             }
-        },
+        }
 
         
         Commands::Run {project_name} => {
