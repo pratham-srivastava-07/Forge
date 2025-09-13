@@ -6,7 +6,7 @@ use crate::utility::helper::find_executable;
 
 pub fn run_command(_project_name: &str) -> std::io::Result<()> {
     let cwd = env::current_dir()?;
-
+    
     let template = detect_template(&cwd)?;
     let project_dir = match template {
         Template::App => cwd.join("app"),
