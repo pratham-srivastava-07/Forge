@@ -13,8 +13,7 @@ pub fn run_command(_project_name: &str) -> std::io::Result<()> {
         Template::Lib => cwd.join("lib"),
     };
     let build_dir = project_dir.join("build");
-
-    println!("Ensuring project is built...");
+    
     let _ = build_project(); 
 
     let exe_path = find_executable(&build_dir)?;

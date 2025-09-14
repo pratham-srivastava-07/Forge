@@ -7,7 +7,6 @@ use cpp::cli::{CPP, Commands};
 
 
 fn main() {
-    println!("Hello");
 
     let cpp = CPP::parse();
 
