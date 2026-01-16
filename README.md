@@ -27,7 +27,7 @@ oxibuild init --project_name my_lib --lib  # Create a library
 ### Build the project
 
 ```bash
-forge build
+oxibuild build
 ```
 
 ### Run the project
