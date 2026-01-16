@@ -1,4 +1,4 @@
-# Forge
+# Oxibuild
 
 A powerful CLI tool to initialize, build, run, and manage C++ projects.
 
@@ -12,7 +12,7 @@ A powerful CLI tool to initialize, build, run, and manage C++ projects.
 ## Installation
 
 ```bash
-cargo install forge
+cargo install oxibuild
 ```
 
 ## Usage
@@ -20,26 +20,26 @@ cargo install forge
 ### Initialize a new project
 
 ```bash
-forge init --project_name my_app --app  # Create an application
-forge init --project_name my_lib --lib  # Create a library
+oxibuild init --project_name my_app --app  # Create an application
+oxibuild init --project_name my_lib --lib  # Create a library
 ```
 
 ### Build the project
 
 ```bash
-forge build
+oxibuild build
 ```
 
 ### Run the project
 
 ```bash
-forge run --project_name my_app
+oxibuild run --project_name my_app
 ```
 
 ### Install a library
 
 ```bash
-forge install --library_name external_lib --repo_url https://github.com/user/repo
+oxibuild install --library_name external_lib --repo_url https://github.com/user/repo
 ```
 
 ## License
