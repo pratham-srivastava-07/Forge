@@ -1,4 +1,4 @@
-# Forge
+# Oxibuild
 
 A powerful CLI tool to initialize, build, run, and manage C++ projects.
 
