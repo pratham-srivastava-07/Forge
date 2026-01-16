@@ -1,0 +1,47 @@
+# Forge
+
+A powerful CLI tool to initialize, build, run, and manage C++ projects.
+
+## Features
+
+- **Init**: Create new C++ applications or libraries with a standard template.
+- **Build**: Build your C++ projects easily.
+- **Run**: Execute your C++ applications.
+- **Install**: Install C++ libraries from remote repositories.
+
+## Installation
+
+```bash
+cargo install forge
+```
+
+## Usage
+
+### Initialize a new project
+
+```bash
+forge init --project_name my_app --app  # Create an application
+forge init --project_name my_lib --lib  # Create a library
+```
+
+### Build the project
+
+```bash
+forge build
+```
+
+### Run the project
+
+```bash
+forge run --project_name my_app
+```
+
+### Install a library
+
+```bash
+forge install --library_name external_lib --repo_url https://github.com/user/repo
+```
+
+## License
+
+MIT
