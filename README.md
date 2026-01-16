@@ -12,7 +12,7 @@ A powerful CLI tool to initialize, build, run, and manage C++ projects.
 ## Installation
 
 ```bash
-cargo install forge
+cargo install oxibuild
 ```
 
 ## Usage
